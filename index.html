@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<title>jarson影院首页</title>
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" href="images/icon.png" />
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="https://leancloud.cn/scripts/lib/av-0.5.0.min.js"></script>
+	<script type="text/javascript" src="js/jpages.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<style type="text/css">
+	/* 分页的链接样式 */
+	#pages_area a {
+		font-size: 14px;
+		cursor: pointer;
+		margin: 0 5px;
+		color: #333;
+	}
+	#pages_area a:hover {
+		background-color: #222;
+		color: #fff;
+		text-decoration: none;
+	}
+	#pages_area a.jp-previous { margin-right: 15px; }
+	#pages_area a.jp-next { margin-left: 15px; }
+	#pages_area a.jp-current, a.jp-current:hover { 
+		color: #FF4242;
+		font-weight: bold;
+	}
+	#pages_area a.jp-disabled, a.jp-disabled:hover {
+		color: #bbb;
+	}
+	#pages_area a.jp-current, a.jp-current:hover,
+	#pages_area a.jp-disabled, a.jp-disabled:hover {
+		cursor: default; 
+		background: none;
+	}
+	#pages_area span { margin: 0 5px; }
+	</style>
+</head>
+<body>
+	<div id="top">
+		<div class="info_area">
+			<div class="info_left">
+				<img src="images/site_logo.png"/>
+			</div>
+			<div class="info_right">
+				<p class="concat_us">Contact me:</p>
+				<p class="concat_phone">18513032662</p>
+				<p class="concat_qq">1031356013</p>
+			</div>
+		</div>
+		<div class="nav">
+			<div class="nav_area">
+				<a style="width:80px;margin-left:9px;" class="active nav_index" href="javascript:;">首页</a>
+				<a class="nav_news" href="javascript:;">最新动态</a>
+				<a class="nav_movies" href="javascript:;">电影仓库</a>
+				<a class="nav_about" href="about_us.html">关于本站</a>
+				<a class="nav_owner" href="account.html">个人空间</a>
+			</div>
+			<div class="time_area">
+				<dl id="clock">
+					<dt>Now Time is:</dt>
+					<dd>
+						<img id= "d0" src="images/Numbers/0.gif" alt="0">
+						<img id= "d1" src="images/Numbers/0.gif" alt="0">
+						<img style="margin:0 2px;" src="images/Numbers/colon.gif" alt=":">
+						<img id= "d2" src="images/Numbers/0.gif" alt="0">
+						<img id= "d3" src="images/Numbers/0.gif" alt="0">
+						<img style="margin:0 2px;" src="images/Numbers/colon.gif" alt=":">
+						<img id= "d4" src="images/Numbers/0.gif" alt="0">
+						<img id= "d5" src="images/Numbers/0.gif" alt="0">
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+
+	<div id="content">
+		<div id="banner_area">
+			<div class="banner_pic">
+				<a href="javascript:;" class="prev_link prev"></a>
+	            <a href="javascript:;" class="next_link next"></a>
+	            <span class="prev_bg prev"></span>
+	            <span class="next_bg next"></span>
+	            <ul>
+	            	<li style="opacity:1;filter:alpha(opacity=100);">
+	            		<img src="images/banner/banner1.png" alt="" />
+	            		<h2>木星上行</h2>
+	           			<p>讲述未来世界，拥有狼基因的赏金猎人奉命追杀与宇宙女王相同基因......</p>
+	           		</li>
+	            	<li>
+	            		<img src="images/banner/banner2.png" alt="" />
+	            		<h2>超能陆战队</h2>
+	           			<p>主要讲述充气机器人大白与天才少年小宏联手菜鸟小伙伴组建超能陆战......</p>
+	            	</li>
+	            	<li>
+	            		<img src="images/banner/banner3.png" alt="" />
+	            		<h2>帕丁顿熊</h2>
+	           			<p>讲述了这只喜欢吃果酱的小熊从暗无天日的秘鲁抵达伦敦迷路后，与人......</p>
+	            	</li>
+	            	<li>
+	            		<img src="images/banner/banner4.png" alt="" />
+	            		<h2>狼图腾</h2>
+	           			<p>是一部以狼为叙述主体的小说，讲述了上个世纪六七十年代一位知青在......</p>
+	            	</li>
+	            </ul>
+			</div>
+			<div class="banner_text">
+				<div class="text_title">优惠活动</div>
+				<div class="text_bg">
+					<div class="text_content">
+						<div class='text1'>
+							<h2>影院公告</h2>
+							<p>1.金卡：充值<span class='red'>200</span>元，25元2D/3D通看，购买单品享受<span class='red'>9.5</span>折！</p>
+							<p>2.钻卡：充值<span class='red'>500</span>元，20元2D/3D通看，购买单品享受<span class='red'>9.0</span>折！ </p>
+							<p>3.会员观看每日<span class='red'>17点</span>前的场次参加幸运大转盘抽奖，均有机会获得<span class='red'>免费</span>观影资格！</p>
+
+							<h2 class="six_month">6月活动详情</h2>
+							<p>1.金卡会员充1000元送<span class='red'>300</span>元,(每月30，分10月送达)。</p>
+							<p>2.钻卡会员充2000元送<span class='red'>1000</span>元,(每月100，分10月送达)。</p>
+							<p>3.本月每周三：</p>
+							<p class="last_p">观影低至<span class='red'>15</span>元，全天同通看，卖场商品全部<span class='red'>8.8</span>折！</p>
+						</div>
+						<div class='text2'>
+							<h2>影院公告</h2>
+							<p>1.金卡：充值<span class='red'>200</span>元，25元2D/3D通看，购买单品享受<span class='red'>9.5</span>折！</p>
+							<p>2.钻卡：充值<span class='red'>500</span>元，20元2D/3D通看，购买单品享受<span class='red'>9.0</span>折！ </p>
+							<p>3.会员观看每日<span class='red'>17点</span>前的场次参加幸运大转盘抽奖，均有机会获得<span class='red'>免费</span>观影资格！</p>
+
+							<h2 class="six_month">6月活动详情</h2>
+							<p>1.金卡会员充1000元送<span class='red'>300</span>元,(每月30，分10月送达)。</p>
+							<p>2.钻卡会员充2000元送<span class='red'>1000</span>元,(每月100，分10月送达)。</p>
+							<p>3.本月每周三：</p>
+							<p class="last_p">观影低至<span class='red'>15</span>元，全天同通看，卖场商品全部<span class='red'>8.8</span>折！</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 图片和文字滚动部分结束 -->
+
+		<div id="index_content">
+			<div class="left_nav">
+				<p class="playing active">正在热映</p>
+				<p class="coming">即将上映</p>
+				<div class="author_info">
+					<p class="blog_info"><a href="http://www.cnblogs.com/jarson-7426/">www.cnblogs.com/jarson-7426/</a></p>
+					<p class="weibo_info"><a href="http://weibo.com/2732624311/">weibo.com/2732624311/</a></p>
+					<p class="douban_info"><a href="http://www.douban.com/people/122408591/">www.douban.com/people/122408591/</a></p>
+					
+				</div>
+			</div>
+			<div class="right_movie_info"><!-- 右边区域，正在热映和即将上映部分 -->
+				<div class="playing_info"><!-- 正在热映区域 -->
+					<div class='playing_movie'><a target='_blank' class='movie_pic' href=''>"+"<img src='http://img3.douban.com/view/movie_poster_cover/spst/public/p2247443821.jpg'></a><div class='movie_detail'><h2>搏击迷城<span class='douban_average'>豆瓣评分:</span><span>4.6</span></h2><h4>国家:<span>中国大陆</span>类型:<span> 动作</span></h4><h4>导演:<span>陈丽英</span></h4><h4>主演:<span> 陈伟霆 / 赵柯 / 李菲儿 / 渡边奈绪子 / 斯琴高娃 </span></h4><p class='play_time'><span>6:45</span><span>8:00</span><span>9:45</span><span>12:10</span><span>15:30</span><span>16:40</span><span>18:10</span><span>20:35</span></p><p class='movie_intro'>剧情简介</p><p class='movie_summa'>生长于内蒙古大草原的年轻摔跤手——娜仁（赵柯 饰），应邀前往日本表演摔跤。临行前，金月婆婆（斯琴高娃 饰）托她寻找离别十多年的孙子赤那思（陈伟霆 饰）。 
+　　摔跤会主持人波士，永远戴着小丑面具，表现狂妄自大。摔跤会中，娜仁结识了被丈夫一度离弃的真和子（渡边奈绪子 饰），以及来自香港，与父亲冲突而离家出走的月月（李菲儿 饰）。波士诱使她们答应组队应战另一支凶猛的女子自由摔跤队。娜仁找到今月婆婆的孙子，他改名成若男，从事足疗按摩。出乎意料，若男拒绝一起回大草原的请求。波士和经纪人小百合利欲熏心，在娜仁事先不知的情形下，临时将比赛改为泥浆摔跤。娜仁忍辱参赛。随后发现波士的真实身份正是温纯的若男，也即五年前被迫退出相扑界的赤那思。愤恨之余，娜仁决心以爱唤醒童年伙伴的良知，找回迷失的自我.......</p><p class='summary_bg'><img src='images/summary_bg.png'/><p></div></div>
+				</div>
+				<div class="coming_info"><!-- 即将上映区域 -->
+					<div class="coming_movie"><a target="_blank" class="movie_pic" href=""><img src="http://img3.douban.com/view/movie_poster_cover/spst/public/p2247341513.jpg"></a><div class="movie_detail"><h2 class="h2_title">末日崩塌<span>(美国)</span></h2><h4>年份:<span>2015</span></h4><h4>类型:<span>动作/冒险/灾难</span></h4><h4>导演:<span>布拉德·佩顿</span></h4><h4>主演:<span> 道恩·强森 / 卡拉·古奇诺 / 亚历珊德拉·达达里奥 / 艾恩·格拉法德 </span></h4><p class="movie_intro">剧情简介</p><a class="favo_link" href="javascript:;" title="点赞"></a><p class="favo_add">收藏成功</p><p class="movie_summa">雷·盖恩斯（道恩·强森 Dwayne Johnson 饰）正驱车前往旧金山，随着一声巨响，周围的树木与电线杆变得七扭八歪，紧急刹车查看状况的盖恩斯被眼前的景象“惊呆了”:公路被一条深不见底的裂隙截断，甚至错位，加油站被裂成两半隔着“峡谷”遥遥相对。随着这场超级地震毫无预 兆的来袭，整个城市浓烟滚滚、火光冲天，高楼大厦相继倒塌，到处都是惊慌失措的市民。更要命的是，如此强烈的地震...</p><p class="summary_bg"><img src="images/summary_bg.png"/><p></div></div>
+				</div>
+			</div>
+			
+		</div>
+		<!-- 首页的主要部分结束 -->
+
+		<div id="news_content">
+			<ul class="news_lists">
+				
+			</ul>
+			<div class="news_wrap">
+				
+			</div>
+		</div>
+		<!-- 最新动态的主要部分结束 -->
+
+		<div id="movies_content">
+			<div class="category">
+				<strong>选择分类:</strong>
+				<p class="cate_contry">国家:&nbsp;&nbsp;<span>中国</span><span>美国</span><span>韩国</span><span>日本</span><span>泰国</span></p>
+				<p class="cate_story">剧情:&nbsp;&nbsp;<span>喜剧</span><span>爱情</span><span>惊悚</span><span>战争</span><span>历史</span><span>家庭</span><span>动作</span></p>
+			</div>
+			<p class="all_movie selected">全部</p>
+			<div class="search">
+				<input class="txt_input" type="text" placeholder="电影名/导演/演员"/>
+				<input class="search_link" type="button" />
+			</div>
+			<ul id="movie_area" class="movie_area">
+				<p class="img" style="margin-top:150px;"><img src="images/loading.gif"/></p>
+			</ul>
+			<div id="pages_area">
+				
+			</div>
+		</div>
+		<!-- 电影仓库的主要部分结束 -->
+
+		<div id="footer"><!-- 页面底部开始 -->
+			<p class="footer_nav">
+				<a class="nav_index" href="javascript:;">首页</a>|
+				<a class="nav_news" href="javascript:;">最新动态</a>|
+				<a class="nav_movies" href="javascript:;">电影仓库</a>|
+				<a class="nav_owner" href="javascript:;">个人空间</a>|
+				<a class="nav_about" href="javascript:;">关于本站</a>
+			</p>
+			<p class="copy_right">@copyright 2028903893</p>
+		</div>
+	</div>
+	<div class="float_nav">
+		<a class="qq_link" target='_self' href='http://wpa.qq.com/msgrd?v=1&uin=2446759918&site=在线客服&menu=yes' title="联系我们"></a>
+		<p class="line"></p>
+		<p class="goto_top" title="回到顶部"></p>
+	</div>
+
+	<script type="text/javascript">
+		setInterval(function(){
+			var height=parseInt($(".right_movie_info").css('height'));
+			$(".left_nav").css('height',height);
+
+			var height1=parseInt($(".news_wrap").css('height'));
+			$(".news_lists").css('min-height',height1+40);
+		},100);
+
+		if($(window).scrollTop()<=0){
+	        $(".goto_top").hide();//首先隐藏按钮；
+	    }
+	    $(window).scroll(function(){
+	        var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;//获取滚送条离顶部的距离；
+	        if(scrollTop>0){
+	            $(".goto_top").fadeIn();
+	        }
+	        else{
+	            $(".goto_top").fadeOut();
+	        }
+	    });  //窗口滚动事件结束；
+	    $(".goto_top").click(function(){//“返回顶部”按钮点击事件；
+	        $("html,body").animate({scrollTop:"0px"},'600');//设置动画，0.6秒完成上移
+	    });
+	</script>
+</body>
+</html>

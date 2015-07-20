@@ -1,0 +1,32 @@
+html,body,div,ul,li,p,span,h1,h2,h3,h4,table,tr,td,th{margin:0px;padding:0px;color:#343637;}
+input,img,table,tr,td{border:0px;}
+input,textarea{outline-style:none;}
+li{list-style: none;}
+a{text-decoration:none;}
+a:hover{text-decoration: underline;}
+body{font:14px 'Microsoft YaHei';}
+/* @font-face{
+	font-family: 'FZLanTYJW_Xian';
+	src:url('../fonts/FZLanTYJW_Xian.TTF');
+} */
+
+#main{background:url(../images/story_bg.jpg) center 0;min-height:600px;width:100%;}
+#wrap{background:url(../images/black_bg.png) center 0;min-height:600px;width:100%;}
+.enroll_wrap{width:500px;height:440px;background:#fff;opacity:0.9;filter:alpha(opacity=90);position:fixed;top:0;left:0;bottom:0;right:0;margin:auto;border-radius:8px;}
+.enroll_wrap h2{width:500px;height:40px;font-size:30px;line-height:40px;margin-top:20px;color:#fff;text-shadow:-4px -4px 12px #f6323d, -4px -4px 12px #f6323d,4px -4px 12px #f6323d, 4px 4px 12px #f6323d;text-align:center;}
+.enroll_wrap h4{width:464px;height:20px;font-size:16px;color:#f6323d;text-align:right;margin-top:6px;padding-right:30px;}
+.form_content p{width:410px;height:30px;line-height:30px;margin:0 0 0 90px;margin-top:12px;}
+p.l_username{margin-top:20px;}
+.form_content p input{width:190px;height:30px;background:url(../images/input_big_bg.png) no-repeat;padding-left:6px;margin-left:8px;word-spacing:2px;}
+.form_content p.l_idcode input{background:url(../images/input_small_bg.png) no-repeat;width:68px;}
+#idcode{position:relative;top:-2px;right:-4px;}
+.enroll_btn{width:80px;height:30px;text-align:center;line-height:28px;background:#33cad8;color:#fff;border-radius:2px;font-size:14px;font-family:'微软雅黑';margin-left:162px;margin-top:20px;cursor:pointer;}
+.enroll_btn:hover{background:#0a9cb2;border-radius:2px;}
+.login_link{width:130px;height:20px;cursor:pointer;font-size:12px;margin-left:10px;}
+.login_link a{color:#0a9cb2;}
+span.info{display:inline-block;font-size:12px;position:relative;top:-2px;}
+span.success{display:inline-block;width:16px;height:16px;background:url(../images/validator_default.png) -16px 0 no-repeat;vertical-align:middle;}
+span.error{display:inline-block;width:16px;height:16px;background:url(../images/validator_default.png) 0 0 no-repeat;vertical-align:middle;}
+
+.showmsg{display:none;position:fixed;padding:10px 0px;border:4px solid #ffc600;background-color:#fff;font-size:16px;line-height:24px;z-index:100;top:0;left:1.5%;bottom:18%;right:0;margin:auto;height:24px;width:230px;text-align:center;color:#df4252;}
+.showmsg a{color:#ff4e00;text-decoration:underline;}

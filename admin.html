@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<title>jarson影院-后台管理</title>
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" href="images/icon.png" />
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/nicEdit.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/account.css"/>
+
+	<style type="text/css">
+	.width88{width:88px;}   .width80{width:80px;height:20px;line-height:20px;}
+	.width93{width:93px;}  .width84{width:84px;height:20px;line-height:20px;}
+	.width100{width:100px;}  .width92{width:92px;height:20px;line-height:20px;}
+	.width140{width:140px;}  .width132{width:132px;height:20px;line-height:20px;}
+	.width200{width:200px;}   .width192{width:192px;height:20px;line-height:20px;}
+	.width190{width:190px;}   .width212{width:182px;height:20px;line-height:20px;}
+	.width87{width:70px;}  .width81{width:81px;height:20px;line-height:20px;}
+
+	.return_index{width:60px;height:20px;display:inline-block;line-height:20px;font-size:12px;color:#0a9cb2;float:right;margin:4px 40px 0 0;}
+	#admin_wrap{width:960px;margin:0 auto;min-height:200px;color:#333;}
+	.admin_logo{width:960px;height:70px;}
+	.main_content{width:960px;min-height:100px;}
+	.top_nav{width:364px;height:42px;float:left;}
+	.top_nav li{width:120px;height:40px;float:left;border:1px solid #bbbec0;line-height:40px;text-align:center;font-size:15px;cursor:pointer;border-right:none;}
+	.top_nav li.active{border-bottom-color:#edf0f1;background:#edf0f1;}
+	.div_border{width:596px;height:41px;float:left;border-bottom:1px solid #bbbec0;}
+	.div_border .toindex, .div_border .login_out, .div_border p{display:inline-block;width:90px;height:20px;color:#0e9ff2;float:right;text-align:center;margin-top:16px;margin-left:3px;}
+	.div_border .login_out{width:30px;margin-right:3px;}
+	.div_border p{color:#000;text-align:left;width:120px;}
+	.div_border p span{color:red;display:inline-block;overflow:hidden;white-space:nowrap;width:64px;text-overflow:ellipsis;vertical-align:middle;position:relative;top:-2px;}
+	.admin_content{width:958px;min-height:100px;border:1px solid #bbbec0;border-top:none;float:left;background:#edf0f1;font-size:15px;}
+	.content{width:898px;min-height:100px;padding:30px;}
+	.content2,.content1, .content3{display:none;}
+	.content1 p, .content3 p{margin-bottom:20px;}
+	.content1 input, .content3 input{width:180px;height:22px;background:#edf0f1;line-height:22px;border:1px solid #bbbec0;padding-left:4px;font-size:14px;}
+	.nicEdit-main{min-height:150px !important;}
+	p.news_submit, p.btn_add, p.btn_cancel{width:80px;height:30px;margin:20px 0;text-align:center;cursor:pointer;border:1px solid #bbbec0;line-height:30px;border-radius:4px;float:right;background:#0e9ff2;color:#fff;}
+
+	.users_table{width:898px;border:1px solid #bbbec0;min-height:65px;display:block;text-align:center;}
+	.users_table thead{width:898px;height:30px;display:block;background:#0e9ff2;}
+	.users_table thead tr th{font-weight:normal;color:#fff;text-align:center;line-height:28px;}
+	.users_table tbody{display:block;width:898px;}
+	.users_table tbody tr{font-size:12px;height:35px;line-height:33px;text-align:center;display:block;}
+	.users_table tbody tr input{background:none;font-family:'微软雅黑';text-align:center;color:#343637;border:none;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+	.users_table tbody tr span{padding:2px;cursor:pointer;margin-left:4px;}
+	.users_table tbody tr span.btn_confrim{border:1px solid #bbbec0;padding:2px 8px;border-radius:3px;}
+	.users_table tbody tr .btn_del:hover{color:red;}
+
+	.content3 .admin_btn{margin-bottom:0px;margin-top:30px;}
+	.admin_btn span{border:1px solid #bbbec0;padding:2px 8px;border-radius:3px;margin-left:14px;cursor:pointer;}
+	.admin_btn span.admin_yes{margin-left:90px;}
+	</style>
+</head>
+<body>
+<div class="login_area" style="width:480px;display:none;">
+	<div class="close_area"><a href="index.html" class="return_index">返回首页</a></div>
+	<div class="head_area" style="margin-left:120px;">欢迎登陆影院后台</div>
+	<div class="login_wrap" style="margin-left:92px;">
+		<form class="left_login">
+			<p class="p_user"><span>账  号:</span><input type="text" name="username" placeholder="管理员账号"/></p>
+			<p class="p_password"><span>密  码:</span><input type="password" name="userpwd" placeholder="账号密码"/></p>
+			<p class="btn_login">立即登陆</p>
+		</form>
+	</div>
+</div>
+<div class="whole_bg" style="display:none;"></div>
+
+<div id="admin_wrap">
+	<p class="admin_logo"><img src="images/admin_logo.png"></p>
+	<div class="main_content">
+		<ul class="top_nav">
+			<li class="active">添加新闻</li>
+			<li>用户管理</li>
+			<li style="border-right:1px solid #bbbec0">添加管理员</li>
+		</ul>
+		<div class='div_border'>
+			<a class="login_out" href="javascript:;">登出</a>
+			<p>欢迎您，<span id="txtAname"></span></p>
+			<a class="toindex" href="index.html" style="float:left">去首页看看</a>
+		</div>
+		<div class="admin_content">
+			<div class="content1 content" style="display:block;">
+				<p>新闻标题：<input id="news_title" type="text"/></p>
+				<p>发布时间：<input id="news_time" type="text"/ readonly="value"></p>
+				<p style="margin-bottom:5px;">新闻内容：</p>
+				<textarea id="txtContent" style="width:898px;min-height:150px;margin-top:6px;" runat="server"></textarea>
+				<p class="news_submit">保存新闻</p>
+			</div>
+			<div class="content2 content">
+				<table class='users_table'>
+					<thead>
+						<tr>
+							<th class="width88">用户名称</th>
+							<th class="width93">用户密码</th>
+							<th class="width100">用户电话</th>
+							<th class="width140">用户邮箱</th>
+							<th class="width200">用户简介</th>
+							<th class="width190">喜欢电影ID</th>
+							<th class="width87">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+				<p class="btn_add">添加用户</p>
+			</div>
+			<div class="content3 content">
+				<p>管理员名称：<input id="admin_name" type="text" value=''/></p>
+				<p>管理员密码：<input id="admin_pwd" type="password" value=''/></p>
+				<p>确认此密码：<input id="admin_pwd2" type="password" value=''/></p>
+				<p class="admin_btn"><span class="admin_yes">添加</span><span class="admin_no">取消</span></p>
+
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	bkLib.onDomLoaded(function() {
+        new nicEditor({ fullPanel: true,iconsPath:'../WebFilm/images/nicEditorIcons.gif'}).panelInstance('txtContent');
+    });
+</script>
+</body>
+<script type="text/javascript" src="js/admin.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script src="https://leancloud.cn/scripts/lib/av-0.5.0.min.js"></script><!-- 连接数据库-->
+</html>

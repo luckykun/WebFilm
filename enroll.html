@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<title>jarson影院-注册账号</title>
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" href="images/icon.png" />
+	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.idcode.js"></script>
+	<script src="https://leancloud.cn/scripts/lib/av-0.5.0.min.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/enroll.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.idcode.css">
+</head>
+<body>
+	<div id="main">
+		<div id="wrap">
+			<div class="enroll_wrap">
+				<h2>欢迎注册影院会员</h2>
+				<h4>———注册会员享受更多优惠活动</h4>
+				<div class="form_content">
+					<p class="l_username">
+						<span>用户名称:</span>
+						<input type="text" id="txt_username" maxlength="20" autocomplete="off"/>
+					</p>
+					<p class="l_phone">
+						<span>移动手机:</span>
+						<input type="text" id="txt_phone" maxlength="11" autocomplete="off">
+					</p>
+					<p class="l_email">
+						<span>个人邮箱:</span>
+						<input type="text" id="txt_email" maxlength="22" autocomplete="off">
+					</p>
+					<p class="l_password">
+						<span>设置密码:</span>
+						<input type="password" id="txt_password" autocomplete="off">
+					</p>
+					<p class="l_confirmpwd">
+						<span>确认密码:</span>
+						<input type="password" id="txt_confirmpawd" autocomplete="off">
+					</p>
+					<p class="l_idcode">
+						<span>验证代码:</span>
+						<input type="text" id ="Txtidcode" autocomplete="off"><span id="idcode"></span>
+					</p>
+					<input class="enroll_btn" type="button" value="立即注册" autocomplete="off"/><span class="login_link">已有账号？<a href="account.html">立即登录</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript">
+		var height=document.documentElement.clientHeight;//获取浏览器的可视高度
+		$("#main").css('height',height);
+		$("#wrap").css('height',height);
+        $(document).ready(function () {
+            $.idcode.setCode();//创建验证码；
+            var name=/^[a-zA-Z0-9]+$/;//用户名仅支持字数数字;
+            var phone =/^1[3|4|5|8][0-9]\d{4,8}$/;
+            var email =/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+            var password = /^[\w]{6,14}$/;//6-12位密码，只能是字母加数字；
+
+            function addspan(obj,txt,flag){
+            	obj.parent().find("span.info").remove();
+            	var html_span ="<span class='info'><span class='"+flag+"'></span>"+txt+"</span>";
+            	obj.parent().append(html_span);
+            }
+            $("#txt_username").focus(function(){//验证用户名输入框
+            	addspan($(this),'请输入用户名。','');
+            }).blur(function(){
+            	var txt_username = $(this).val();
+            	if(txt_username.length==0){
+            		addspan($(this),'用户名不能为空！','error');
+            	}else{
+            		if(name.test(txt_username)){
+	            		addspan($(this),'用户名可用。','success');
+	            	}else{
+	            		addspan($(this),'仅支持字母和数字。','error');
+	            		$(this).parent().find("span.info").css("color","red");
+	            	}
+            	}
+            });
+            $("#txt_phone").focus(function(){
+            	addspan($(this),'请输入你的手机号。','');
+            }).blur(function(){
+            	var txt_phone = $(this).val();
+            	if(txt_phone.length==0){
+            		addspan($(this),'手机号不能为空！','error');
+            	}else{
+            		if(phone.test(txt_phone)){
+	            		addspan($(this),'将为你发送实时消息。','success');
+	            	}else{
+	            		addspan($(this),'手机号格式不对吧?','error');
+	            		$(this).parent().find("span.info").css("color","red");
+	            	}
+            	}
+            });
+            $("#txt_email").focus(function(){
+            	addspan($(this),'请输入你的电子邮箱。','');
+            }).blur(function(){
+            	var txt_email = $(this).val();
+            	if(txt_email.length==0){
+            		addspan($(this),'邮箱地址不能为空！','error');
+            	}else{
+            		if(email.test(txt_email)){
+	            		addspan($(this),'将为你发送确认邮件。','success');
+	            	}else{
+	            		addspan($(this),'邮箱格式不是这样吧?','error');
+	            		$(this).parent().find("span.info").css("color","red");
+	            	}
+            	}
+            });
+            $("#txt_password").focus(function(){
+            	addspan($(this),'请设置一个安全的密码。','');
+            }).blur(function(){
+            	var txt_password = $(this).val();
+            	if(txt_password.length==0){
+            		addspan($(this),'密码不能为空！','error');
+            	}else{
+            		if(password.test(txt_password)){
+	            		addspan($(this),'此密码可用。','success');
+	            	}else{
+	            		addspan($(this),'请检查是否是6-12位。','error');
+	            		$(this).parent().find("span.info").css("color","red");
+	            	}
+            	}
+            });
+            $("#txt_confirmpawd").focus(function(){
+            	addspan($(this),'请确认你设置的密码。','');
+            }).blur(function(){
+            	var txt_password = $("#txt_password").val();
+            	var txt_confirmpawd = $(this).val();
+            	if(txt_password.length==0){
+            		addspan($(this),'确认密码不能为空！','error');
+            	}else{
+            		if(txt_password === txt_confirmpawd){
+	            		addspan($(this),'请牢记你的密码。','success');
+	            	}else{
+	            		addspan($(this),'两次输入不一致!','error');
+	            		$(this).parent().find("span.info").css("color","red");
+	            	}
+            	}
+            });
+
+            function showmsg(txt,t){//显示提示信息的函数，txt是内容，t是显示时间
+			    $("body").append("<div class='showmsg'>" + txt + "</div>");
+			    $(".showmsg").fadeIn().delay(t*1000).fadeOut(200,function(){
+			        $(".showmsg").remove();//用完之后删掉此div
+			    });
+			}
+            $(".enroll_btn").click(function(){//点击注册按钮
+            	if($(".form_content").find("span.error").length != 0){//能找到error标签
+            		showmsg("输入信息有错，请检查！",2);
+            	}else{//输入信息正确
+            		var IsBy = $.idcode.validateCode();
+		        	if(IsBy == true){//验证码填写正确
+		        		AV.initialize("9ovy0ez2i1odrxhz6n78l8s1v6jtzgvlluu35qewd6c9tjhv", "2o2ypw6wrt6skzqqcoei7pg0m63by0jee4cbfsk3t2rvor2j");//链接数据库
+
+						var name =$("#txt_username").val();
+				        var phone =$("#txt_phone").val();
+				        var email =$("#txt_email").val();
+				        var password =$("#txt_confirmpawd").val();
+				        var Users = AV.Object.extend("Users");//获取Uses表
+				        var users = new Users();
+				        password = hex_md5(password);
+				        AV.Query.doCloudQuery('select * from Users', {
+		        			success: function(d){
+		        				var len =1;
+		        				if(d.results !=null){
+		        				   var len = d.results.length+1;
+		        				}
+		        				users.save({
+						            user_name:name,
+						            user_phone:phone,
+						            user_email:email,
+						            user_password:password,
+						            user_id:len
+						            }, {
+						            success: function(rsp) {//注册信息成功存入数据库
+						                showmsg("注册成功！正在跳转,请稍等...", 3);
+						                setTimeout(function(){window.location.href='account.html';},3000);
+						            },
+						            error:function(error){
+						            	showmsg("Error:"+error.description);
+						            }
+						        });
+		        			},
+			                error: function(error){
+			                    alert(error.description);
+			                }
+		        		});
+		        	}
+		        	else{
+		        		showmsg("验证码错误，注意区分大小写！",2);
+		        	}
+            	}
+	        });
+        });
+    </script>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<title>jarson影院-个人空间</title>
+	<meta charset="UTF-8" />
+	<link rel="shortcut icon" href="images/icon.png" />
+
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/highcharts.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/account.js"></script>
+	<script src="https://leancloud.cn/scripts/lib/av-0.5.0.min.js"></script><!-- 连接数据库-->
+
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/account.css"/>
+</head>
+<body>
+	<div id="top">
+		<div class="info_area">
+			<div class="info_left">
+				<a href="#"><img src="images/site_logo.png"/></a>
+			</div>
+			<div class="info_right">
+				<p class="concat_us">Contact us:</p>
+				<p class="concat_phone">18513032662</p>
+				<p class="concat_qq">1031356013</p>
+			</div>
+		</div>
+		<div class="nav">
+			<div class="nav_area">
+				<a style="width:80px;margin-left:9px;" class=" nav_index" href="javascript:;">首页</a>
+				<a class="nav_news" href="javascript:;">最新动态</a>
+				<a class="nav_movies" href="javascript:;">电影仓库</a>
+				<a class="nav_about" href="about_us.html">关于本站</a>
+				<a class="nav_owner active" href="javascript:;">个人空间</a>
+			</div>
+			<div class="time_area">
+				<dl id="clock">
+					<dt>Now Time is:</dt>
+					<dd>
+						<img id= "d0" src="images/Numbers/0.gif" alt="0">
+						<img id= "d1" src="images/Numbers/0.gif" alt="0">
+						<img style="margin:0 2px;" src="images/Numbers/colon.gif" alt=":">
+						<img id= "d2" src="images/Numbers/0.gif" alt="0">
+						<img id= "d3" src="images/Numbers/0.gif" alt="0">
+						<img style="margin:0 2px;" src="images/Numbers/colon.gif" alt=":">
+						<img id= "d4" src="images/Numbers/0.gif" alt="0">
+						<img id= "d5" src="images/Numbers/0.gif" alt="0">
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+
+	
+	<div id="content" style="min-height:200px;">
+		<div class="owner_area">
+			<div class="owner_title">登陆之后更精彩哟^_^</div>
+			<ul class="left_link">
+				<li class="favo_li active">喜欢看的电影</li>
+				<li class="info_li">查看个人资料</li>
+				<li class="trend_li">本周访问趋势</li>
+				<li class="links_li">作者友情链接</li>
+			</ul>
+			<div class="right_content">
+				<div class="area_1">
+					<!-- <div class="one_movie">
+						<div class="movie_pic"><a href=""><img src=".."></a></div>
+						<div class="movie_detail">
+							<h2>飓风营救3</h2>
+							<p>豆瓣评分:<span id="db_point">7.0</span></p>
+							<p>国家:<span id="m_contry">灭国</span></p>
+							<p>导演:<span id="m_director">张艺谋</span></p>
+							<p>主演:<span id="m_type">你、他、你们</span></p>
+						</div>
+					</div> -->
+				</div>
+				<div class="area_2">
+					<p class="line_area"></p>
+					<div class="ziliao_area">
+						<p class="change_info">修改资料</p>
+						<p class="change_pwd">修改密码</p>
+						<p class="u_name">昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：<span></span><input type="text" maxlength="20" placeholder="请输入新昵称"/></p>
+						<p class="u_phone">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：<span></span><input type="text" maxlength="11" placeholder="请输入新手机号"/></p>
+						<p class="u_email">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<span></span><input type="text" placeholder="请输入新邮箱"/></p>
+						<p class="u_desc">个人简介：<span></span><textarea placeholder="请输入你的个人简介"></textarea></p>
+						<p class="cancel_info">取消修改</p>
+						<p class="clearfix"></p>
+					</div>
+					<div class="pwd_area">
+						<p class="old_pwd">旧&nbsp;&nbsp;密&nbsp;&nbsp;码：<input type="password" placeholder="请输入原密码"/></p>
+						<p class="new_pwd">新&nbsp;&nbsp;密&nbsp;&nbsp;码：<input type="password" placeholder="请设置新密码"/></p>
+						<p class="confirm_pwd">确认密码：<input type="password" placeholder="请确认新密码"/></p>
+						<p class="cancel_pwd">取消修改</p>
+						<p class="clearfix"></p>
+					</div>
+				</div>
+				<div class="area_3">
+					<div id="container" style='width:600px;height:320px;margin:0 auto;'></div>
+				</div>
+				<div class="area_4">
+					<P class="my_blog">技术博客：
+						<a href="http://www.cnblogs.com/jarson-7426/" target="_blank">作者博客园首页</a>
+						<a href="http://www.w3cfuns.com/home.php?mod=space&uid=5446983" target="_blank">作者W3C首页</a>
+						<a href="https://github.com/jarson7426" target="_blank">作者Github主页</a>
+					</P>
+					<p class="my_account">社交首页：
+						<a href="http://weibo.com/u/2732624311" target="_blank">作者新浪微博首页</a>
+						<a href="http://t.qq.com/jianzhikun?preview" target="_blank">作者腾讯微博首页</a>
+						<a href="www.douban.com/people/122408591/" target="_blank">作者豆瓣首页</a>
+					</p>
+					<p class="recommend_blog">推荐博客：
+						<a href="http://www.zhangxinxu.com/wordpress/" target="_blank">张鑫旭前端空间</a>
+						<a href="https://css-tricks.com/" target="_blank">Css tricks</a>
+						<a href="http://ued.taobao.org/blog/" target="_blank">淘宝UED团队</a>
+					</p>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div id="footer"><!-- 页面底部开始 -->
+			<p class="footer_nav">
+				<a class="nav_index" href="javascript:;">首页</a>|
+				<a class="nav_news" href="javascript:;">最新动态</a>|
+				<a class="nav_movies" href="javascript:;">电影仓库</a>|
+				<a class="nav_owner" href="javascript:;">个人空间</a>|
+				<a class="nav_about" href="javascript:;">关于本站</a>
+			</p>
+			<p class="copy_right">@copyright 2028903893</p>
+		</div>
+	</div>
+	
+	<div class="float_nav">
+		<a class="qq_link" target='_self' href='http://wpa.qq.com/msgrd?v=1&uin=2446759918&site=在线客服&menu=yes' title="联系我们"></a>
+		<p class="line"></p>
+		<p class="goto_top" title="回到顶部"></p>
+	</div>
+
+	<div class="login_area">
+		<div class="close_area"><span class="close_btn"></span></div>
+		<div class="head_area">欢迎登陆个人空间</div>
+		<div class="login_wrap">
+			<form class="left_login">
+				<p class="p_user"><span>账  号:</span><input type="text" name="username" placeholder="昵称/手机号"/></p>
+				<p class="p_password"><span>密  码:</span><input type="password" name="userpwd" placeholder="账号密码"/></p>
+				<p class="btn_login">立即登陆</p>
+			</form>
+			<div class="right_login">
+				<p class="enroll_link">没有账号？<a class="btn_enroll" target='_blank' href="enroll.html">点击注册</a></p>
+				<p><a class="admin_login" href="admin.html">管理员入口</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="whole_bg"></div>
+
+	<script type="text/javascript">
+		var height=parseInt(document.documentElement.clientHeight)-290;//获取主要内容的可视高度
+		$(".owner_area").css("min-height",height);
+		$(".right_content").css("min-height",height-40);
+		$(".left_link").css("height",$(".right_content").css("height"));
+		setInterval(function(){
+			$(".owner_area").css("min-height",height);
+			$(".right_content").css("min-height",height-40);
+			$(".left_link").css("height",$(".right_content").css("height"));
+		},50);
+
+		if($(window).scrollTop()<=0){
+	        $(".goto_top").hide();//首先隐藏按钮；
+	    }
+	    $(window).scroll(function(){
+	        var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;//获取滚送条离顶部的距离；
+	        if(scrollTop>0){
+	            $(".goto_top").fadeIn();
+	        }
+	        else{
+	            $(".goto_top").fadeOut();
+	        }
+	    });  //窗口滚动事件结束；
+	    $(".goto_top").click(function(){//“返回顶部”按钮点击事件；
+	        $("html,body").animate({scrollTop:"0px"},'600');//设置动画，0.6秒完成上移
+	    });
+	</script>
+</body>
+</html>

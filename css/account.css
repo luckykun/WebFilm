@@ -1,0 +1,57 @@
+.owner_area{width:960px;background:#fff;margin:0 auto;}
+.login_now{width:130px;height:30px;text-align:center;line-height:30px;font-size:16px;background:#0e6488;border-radius:4px;color:#fff;margin-top:150px;cursor:pointer;margin-left:310px;}
+.login_now:hover{font-size:18px;color:red;line-height:28px;}
+.owner_title{width:950px;height:20px;text-align:right;padding:10px 0;background:rgb(226,192,68);color:#fff;padding-right:10px;}
+.owner_title span{padding:0 4px;margin-right:4px;color:#fff;}
+.owner_title .login_out{margin-left:6px;color:#0e6488;cursor:pointer;}
+.owner_title .login_out:hover{text-decoration:underline;}
+.left_link{width:180px;background:rgb(226,192,68);float:left;}
+.left_link li{width:138px;height:40px;line-height:40px;padding-left:42px;cursor:pointer;font-size:14px;}
+.left_link li.active, .left_link li:hover{background-color:rgb(229,198,87);color:#fff;}
+li.favo_li{background:url(../images/favo_bg.ico) 10px center no-repeat;}
+li.info_li{background:url(../images/info_bg.ico) 10px center no-repeat;}
+li.trend_li{background:url(../images/trend_bg.png) 10px center no-repeat;}
+li.links_li{background:url(../images/links_bg.ico) 10px center no-repeat;}
+.right_content{width:780px;float:left;background:#fff;}
+
+/* 喜欢看的电影区域 */
+.area_1, .area_2, .area_3, .area_4{width:752px;min-height:100px;padding-left:14px;float:left;padding-right:14px;}
+.one_movie{width:250px;height:170px;float:left;margin-bottom:20px;}
+.one_movie .movie_pic{width:100px;height:140px;float:left;margin-top:14px;overflow:hidden;margin-right:10px;}
+.one_movie .movie_pic a{display:inline-block;width:98px;height:138px;border:1px solid #343637;}
+.one_movie .movie_detail{width:140px;height:170px;float:left;}
+.movie_detail h2{font-weight:normal;color:#2aa2db;margin-top:16px;}
+#m_contry{font-size:14px;color:#343637;}
+.movie_detail p{height:20px;line-height:20px;margin-top:6px;font-weight:bold;}
+.movie_detail p span{font-weight:normal;padding-left:4px;}
+#db_point{color:red;}
+
+/* 个人资料区域 */
+.area_2, .area_3{display:none;position:relative;}
+.area_2 p{height:30px;line-height:30px;margin-top:20px;}
+.area_2 p input{border:1px solid #666;height:20px;line-height:20px;width:150px;padding-left:4px;}
+.area_2 .ziliao_area input{display:none;}
+.area_2 p textarea{resize: none;width:150px;height:40px;border:1px solid #666;position:relative;left:-4px;vertical-align:top;bottom:-4px;padding-left:4px;display:none;}
+.ziliao_area, .pwd_area{width:356px;min-height:100px;float:left;margin-top:30px;padding-left:10px;margin-bottom:20px;}
+.pwd_area{display:none;margin-left:20px;}
+p.line_area{width:752px;height:1px;background:#e7e8e9;margin-top:40px;}
+p.change_pwd, p.save_pwd, p.change_info, p.save_info, p.cancel_info, p.cancel_pwd{width:64px;height:22px;line-height:22px;text-align:center;border-radius:20px;background:#e7e8e9;border:1px solid #666;cursor:pointer;position:absolute;}
+p.change_pwd, p.save_pwd{right:540px;top:8px;}
+p.change_info, p.save_info{left:90px;top:8px;}
+p.cancel_info{left:132px;bottom:14px;display:none}
+p.cancel_pwd{right:190px;bottom:75px;}
+p.change_pwd:hover, p.save_pwd:hover, p.change_info:hover, p.save_info:hover, p.cancel_info:hover, p.cancel_pwd:hover{background:#faae2a;color:#fff;border-color:#e18f01;}
+.news_pwd input{position:relative;left:-2px;}
+
+/* 友情链接 */
+.area_4{display:none;padding-top:60px;}
+.area_4 p{width:600px;height:50px;float:left;line-height:50px;font-size:15px;font-weight:bold;margin-left:80px;}
+.area_4 p a{padding:16px 10px;margin:5px 10px;font-weight:normal;color:#343637;}
+.area_4 p a:hover{background:#d0cccc;color:#ff8f00;border-radius:5px;text-decoration:none;}
+
+.u_desc span.info{position:relative;left:-5px;}
+span.info{display:inline-block;font-size:12px;position:relative;top:-2px;}
+span.success{display:inline-block;width:16px;height:16px;background:url(../images/validator_default.png) -16px 0 no-repeat;vertical-align:middle;}
+span.error{display:inline-block;width:16px;height:16px;background:url(../images/validator_default.png) 0 0 no-repeat;vertical-align:middle;}
+.clearfix{clear:both;}
+div.showmsg{width:200px;bottom:0;}

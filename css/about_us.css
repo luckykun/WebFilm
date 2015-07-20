@@ -1,0 +1,6 @@
+.iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+.iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+#dituContent{width:958px;height:380px;border:#ccc solid 1px;margin-top:6px;qi}
+.basic_info, .detial_info, .service_info{width:960px;min-height: 180px;margin:0 auto;background:#fff;padding-bottom:30px;}
+.basic_info h2, .detial_info h2, .service_info h2{height:40px;background:#afabab;padding-left:20px;width:940px;font-size:16px;line-height:40px;}
+.basic_area p, .service_area p, .detail_area p{padding:6px 20px 0;width:920px;min-height:22px;line-height:22px;margin-top:3px;}
